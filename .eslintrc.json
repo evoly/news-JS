@@ -4,6 +4,17 @@
         "plugin:prettier/recommended",
         "prettier"
     ],
+    "overrides": [
+    {
+        "files": ["*.ts"],
+        "parser": "@typescript-eslint/parser",
+        "plugins": ["@typescript-eslint"],
+        "extends": ["plugin:@typescript-eslint/recommended"],
+        "rules": {
+            "@typescript-eslint/no-explicit-any": "error"
+        }
+    }
+    ],
     "parserOptions": {
         "ecmaVersion": 2020,
         "sourceType": "module"
