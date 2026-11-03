@@ -11,7 +11,14 @@
             <h1>News Portal</h1>
         </header>
         <main class="main">
-            <div class="sources buttons"></div>
+            <div class="sources-container">
+                <div class="sources buttons"></div>
+                <div class="pagination" id="pagination">
+                    <button class="pagination-btn pagination-prev" type="button" aria-label="previous page">←</button>
+                    <span class="pagination-current">1</span>
+                    <button class="pagination-btn pagination-next" type="button" aria-label="next page">→</button>
+                </div>
+            </div>
             <div class="news"></div>
         </main>
         <footer>

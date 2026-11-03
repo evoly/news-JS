@@ -1,16 +1,34 @@
-
 import './sources.css';
-import type { Source } from '../../types'; // Adjust path if necessary
-
+import type { Source } from '../../types';
+import Pagination from '../pagination/pagination';
 class Sources {
+    private sources: Source[] = [];
+    private pagination: Pagination | null = null;
+
     public draw(data: Source[]): void {
-        const fragment = document.createDocumentFragment();
+        const sourcesContainer = document.querySelector<HTMLElement>('.sources');
+        if (!sourcesContainer) return;
+
+        this.sources = data;
+
+        if (!this.pagination) {
+            this.pagination = new Pagination(sourcesContainer, () => this.renderPage());
+        }
+
+        this.pagination.setTotalItems(data.length);
+        this.renderPage();
+    }
+
+    private renderPage(): void {
         const sourceItemTemp = document.querySelector<HTMLTemplateElement>('#sourceItemTemp');
         const sourcesContainer = document.querySelector<HTMLElement>('.sources');
 
-        if (!sourceItemTemp || !sourcesContainer) return;
+        if (!sourceItemTemp || !sourcesContainer || !this.pagination) return;
 
-        data.forEach((item) => {
+        const fragment = document.createDocumentFragment();
+        const visibleSources = this.pagination.getPageItems(this.sources);
+
+        visibleSources.forEach((item) => {
             const sourceClone = sourceItemTemp.content.cloneNode(true) as DocumentFragment;
 
             const sourceName = sourceClone.querySelector<HTMLElement>('.source__item-name');
@@ -24,7 +42,7 @@ class Sources {
             fragment.append(sourceClone);
         });
 
-        sourcesContainer.append(fragment);
+        sourcesContainer.replaceChildren(fragment);
     }
 }
 
