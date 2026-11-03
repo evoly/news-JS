@@ -27,3 +27,8 @@ export interface NewsResponse {
     totalResults: number;
     articles: Article[];
 }
+
+export enum ApiEndpoint {
+    Sources = 'sources',
+    Everything = 'everything',
+}
