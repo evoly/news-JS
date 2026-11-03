@@ -44,7 +44,6 @@ export default class Pagination {
         observer.observe(this.container);
     }
 
-
     private getColumnCount(): number {
         const styles = getComputedStyle(this.container);
         return styles.gridTemplateColumns.split(' ').length;

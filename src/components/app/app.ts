@@ -1,4 +1,3 @@
-
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
 
@@ -12,7 +11,7 @@ class App {
     }
 
     public start(): void {
-        const sourcesContainer = document.querySelector < HTMLElement > ('.sources');
+        const sourcesContainer = document.querySelector<HTMLElement>('.sources');
 
         if (!sourcesContainer) return;
 

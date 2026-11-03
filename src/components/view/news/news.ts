@@ -29,11 +29,7 @@ class News {
 
             const metaDate = newsClone.querySelector('.news__meta-date');
             if (metaDate) {
-                metaDate.textContent = item.publishedAt
-                    .slice(0, 10)
-                    .split('-')
-                    .reverse()
-                    .join('-');
+                metaDate.textContent = item.publishedAt.slice(0, 10).split('-').reverse().join('-');
             }
 
             const descTitle = newsClone.querySelector('.news__description-title');
