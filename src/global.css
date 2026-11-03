@@ -2,6 +2,14 @@ body {
     color: #fff;
     background: #17181c;
     font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+.main {
+    flex: 1;
 }
 
 header {
@@ -33,3 +41,4 @@ footer .copyright a:hover {
 footer .copyright:before {
     content: '©';
 }
+
