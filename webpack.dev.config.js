@@ -6,4 +6,7 @@ module.exports = {
     devServer: {
         static: path.resolve(__dirname, './dist'),
     },
+    output: {
+        publicPath: '/',
+    },
 };
